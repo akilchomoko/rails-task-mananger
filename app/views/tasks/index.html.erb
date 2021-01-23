@@ -5,13 +5,14 @@
       <li>
         <input type="checkbox" id="task" name="task" <%= task.completed ? "checked" : "" %> disabled >
         <%= link_to task.title, task_path(task.id) %>
-        <%= link_to "🗑", task_path(task.id), method: :delete, data: { confirm: "Sure?"} %>
+        <%#= link_to "🗑", task_path(task.id), method: :delete, data: { confirm: "Sure?"} %>
+        <%= link_to task_path(task.id) do  %>
+          <i class="fas fa-trash"></i>
+        <% end  %>
       </li>
     <% end %>
   </ul>
-  <div><p><i class="fas fa-trash"></i></p></div>
 
   <hr>
-  <p>+ <%= link_to "Add new task", new_task_path %>
-   
+  <p>+ <%= link_to "Add new task", new_task_path %>   
 </div>

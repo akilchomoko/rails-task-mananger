@@ -1,10 +1,11 @@
   <%= simple_form_for(task) do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :details %>
-    <%= f.text_area :details, size: "70x5" %>
-    <%= f.check_box(:completed) %>
-    <%= f.label(:completed, "Task completed?") %>
-
+    <%#= f.label :title %>
+    <%= f.input :title %>
+    <%#= f.label :details %>
+    <%= f.input :details, as: :text, input_html: {rows: 3, cols: 10} %>
+    <%  if params[:action] == "edit" %>
+      <%= f.input :completed, as: :boolean %>
+    <% end  %>
+    <%#= f.label(:completed, "Task completed?") %>
     <%= f.submit %>
   <% end %>
